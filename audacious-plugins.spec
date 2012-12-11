@@ -1,7 +1,7 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
 Version:	3.3.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
@@ -65,6 +65,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/audacious/paranormal/Presets
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv $RPM_BUILD_ROOT%{_datadir}/locale/id{_ID,}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/sr{_RS,}
 
