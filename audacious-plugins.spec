@@ -1,11 +1,11 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
-Version:	3.3.3
-Release:	2
+Version:	3.3.4
+Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	d77af4d5bff383cc7ab384da21f527f6
+# Source0-md5:	c7fc344b802557cbbe208c31e5289ef1
 URL:		http://audacious-media-player.org/
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
