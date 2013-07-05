@@ -1,11 +1,11 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
-Version:	3.3.4
-Release:	3
+Version:	3.4
+Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	c7fc344b802557cbbe208c31e5289ef1
+# Source0-md5:	ea59b4023f32ca096519d01b8f6f33c0
 URL:		http://audacious-media-player.org/
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
@@ -52,10 +52,8 @@ sed -i -e "s|53.40.0|53.35.0|" configure.ac
 %configure \
 	--disable-adplug	\
 	--disable-modplug	\
-	--disable-oss		\
 	--disable-sid		\
-	--enable-amidiplug	\
-	--enable-ipv6
+	--enable-amidiplug
 %{__make}
 
 %install
@@ -141,6 +139,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_libdir}/audacious/Visualization/blur_scope.so
 %attr(755,root,root) %{_libdir}/audacious/Visualization/cairo-spectrum.so
+%attr(755,root,root) %{_libdir}/audacious/Visualization/gl-spectrum.so
 
 %{_datadir}/audacious/paranormal
 %{_datadir}/audacious/ui
