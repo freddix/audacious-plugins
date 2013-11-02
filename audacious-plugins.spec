@@ -1,11 +1,11 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
-Version:	3.4.1
-Release:	1
+Version:	3.4.2
+Release:	2
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	74c9929190dee4b95db8633d4edb2afb
+# Source0-md5:	ac105d093eb819e6346abe19134a40e9
 URL:		http://audacious-media-player.org/
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
@@ -21,7 +21,6 @@ BuildRequires:	lame-libs-devel
 BuildRequires:	libav-devel
 BuildRequires:	libcddb-devel
 BuildRequires:	libcdio-paranoia-devel
-BuildRequires:	libglade-devel
 BuildRequires:	libmms-devel
 BuildRequires:	libmtp-devel
 BuildRequires:	libnotify-devel
@@ -43,7 +42,7 @@ Plugins for Audacious media player.
 %setup -qn %{name}-%{version}
 
 # relax ffmpeg deps for libav build
-sed -i -e "s|53.40.0|53.35.0|" configure.ac
+%{__sed} -i "s|53.40.0|53.35.0|" configure.ac
 
 %build
 %{__aclocal} -I m4
@@ -64,6 +63,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/audacious/paranormal/Presets
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_datadir}/locale/id{_ID,}
+mv $RPM_BUILD_ROOT%{_datadir}/locale/ml{_IN,}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/sr{_RS,}
 
