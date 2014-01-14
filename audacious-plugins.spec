@@ -1,7 +1,7 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
 Version:	3.4.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
@@ -13,12 +13,12 @@ BuildRequires:	audacious-devel >= %{version}
 BuildRequires:	curl-devel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	faad2-devel
+BuildRequires:	ffmpeg-devel
 BuildRequires:	flac-devel
 BuildRequires:	fluidsynth-devel
 BuildRequires:	glib-gio-devel
 BuildRequires:	jack-audio-connection-kit-devel
 BuildRequires:	lame-libs-devel
-BuildRequires:	libav-devel
 BuildRequires:	libcddb-devel
 BuildRequires:	libcdio-paranoia-devel
 BuildRequires:	libmms-devel
