@@ -1,11 +1,11 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
-Version:	3.4.3
-Release:	3
+Version:	3.5
+Release:	2
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	a52e1ec2f37e9269e26ee67b41153d73
+# Source0-md5:	fbf787c1338c6903969d1c02e18fc768
 URL:		http://audacious-media-player.org/
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
@@ -66,7 +66,7 @@ mv $RPM_BUILD_ROOT%{_datadir}/locale/id{_ID,}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/ml{_IN,}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/sr{_RS,}
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/cmn
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{cmn,fa_IR,sr/sr_RS}
 
 %find_lang %{name}
 
@@ -76,8 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %{_datadir}/audacious/Skins
-%dir %{_libdir}/audacious/Input/amidi-plug
 %attr(755,root,root) %{_libdir}/audacious/Container/asx.so
+%attr(755,root,root) %{_libdir}/audacious/Container/asx3.so
 %attr(755,root,root) %{_libdir}/audacious/Container/audpl.so
 %attr(755,root,root) %{_libdir}/audacious/Container/m3u.so
 %attr(755,root,root) %{_libdir}/audacious/Container/pls.so
@@ -98,6 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/audacious/General/albumart.so
 %attr(755,root,root) %{_libdir}/audacious/General/aosd.so
 %attr(755,root,root) %{_libdir}/audacious/General/cd-menu-items.so
+%attr(755,root,root) %{_libdir}/audacious/General/delete-files.so
 %attr(755,root,root) %{_libdir}/audacious/General/gnomeshortcuts.so
 %attr(755,root,root) %{_libdir}/audacious/General/gtkui.so
 %attr(755,root,root) %{_libdir}/audacious/General/hotkey.so
@@ -110,10 +111,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/audacious/General/song_change.so
 %attr(755,root,root) %{_libdir}/audacious/General/statusicon.so
 
+%attr(755,root,root) %{_libdir}/audacious/Input/aac-raw.so
 %attr(755,root,root) %{_libdir}/audacious/Input/aac.so
 %attr(755,root,root) %{_libdir}/audacious/Input/amidi-plug.so
-%attr(755,root,root) %{_libdir}/audacious/Input/amidi-plug/ap-alsa.so
-%attr(755,root,root) %{_libdir}/audacious/Input/amidi-plug/ap-fluidsynth.so
 %attr(755,root,root) %{_libdir}/audacious/Input/cdaudio-ng.so
 %attr(755,root,root) %{_libdir}/audacious/Input/console.so
 %attr(755,root,root) %{_libdir}/audacious/Input/ffaudio.so
@@ -136,12 +136,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/audacious/Transport/gio.so
 %attr(755,root,root) %{_libdir}/audacious/Transport/mms.so
 %attr(755,root,root) %{_libdir}/audacious/Transport/neon.so
-%attr(755,root,root) %{_libdir}/audacious/Transport/unix-io.so
 
 %attr(755,root,root) %{_libdir}/audacious/Visualization/blur_scope.so
 %attr(755,root,root) %{_libdir}/audacious/Visualization/cairo-spectrum.so
 %attr(755,root,root) %{_libdir}/audacious/Visualization/gl-spectrum.so
 
 %{_datadir}/audacious/paranormal
-%{_datadir}/audacious/ui
 
