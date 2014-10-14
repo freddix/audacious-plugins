@@ -1,11 +1,11 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
-Version:	3.5
-Release:	2
+Version:	3.5.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	fbf787c1338c6903969d1c02e18fc768
+# Source0-md5:	0eeb7f8f0183f4189ff1b564e9719cf8
 URL:		http://audacious-media-player.org/
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
@@ -22,9 +22,11 @@ BuildRequires:	lame-libs-devel
 BuildRequires:	libcddb-devel
 BuildRequires:	libcdio-paranoia-devel
 BuildRequires:	libmms-devel
+BuildRequires:	libmodplug-devel
 BuildRequires:	libmtp-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	libsamplerate-devel
+BuildRequires:	libsidplayfp-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	libxml2-devel
@@ -32,6 +34,7 @@ BuildRequires:	mpg123-libs-devel
 BuildRequires:	neon-devel
 BuildRequires:	pkg-config
 BuildRequires:	pulseaudio-devel
+BuildRequires:	wavpack-devel
 Requires:	audacious
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,17 +44,12 @@ Plugins for Audacious media player.
 %prep
 %setup -qn %{name}-%{version}
 
-# relax ffmpeg deps for libav build
-%{__sed} -i "s|53.40.0|53.35.0|" configure.ac
-
 %build
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %configure \
 	--disable-adplug	\
-	--disable-modplug	\
-	--disable-sid		\
 	--enable-amidiplug
 %{__make}
 
@@ -120,11 +118,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/audacious/Input/flacng.so
 %attr(755,root,root) %{_libdir}/audacious/Input/madplug.so
 %attr(755,root,root) %{_libdir}/audacious/Input/metronom.so
+%attr(755,root,root) %{_libdir}/audacious/Input/modplug.so
 %attr(755,root,root) %{_libdir}/audacious/Input/psf2.so
+%attr(755,root,root) %{_libdir}/audacious/Input/sid.so
 %attr(755,root,root) %{_libdir}/audacious/Input/sndfile.so
 %attr(755,root,root) %{_libdir}/audacious/Input/tonegen.so
 %attr(755,root,root) %{_libdir}/audacious/Input/vorbis.so
 %attr(755,root,root) %{_libdir}/audacious/Input/vtx.so
+%attr(755,root,root) %{_libdir}/audacious/Input/wavpack.so
 %attr(755,root,root) %{_libdir}/audacious/Input/xsf.so
 
 %attr(755,root,root) %{_libdir}/audacious/Output/alsa.so
