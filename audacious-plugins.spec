@@ -1,11 +1,11 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
-Version:	3.5.1
+Version:	3.5.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	0eeb7f8f0183f4189ff1b564e9719cf8
+# Source0-md5:	1ba5ef956eb7b4018ff6a9f2ea404354
 URL:		http://audacious-media-player.org/
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
@@ -35,7 +35,7 @@ BuildRequires:	neon-devel
 BuildRequires:	pkg-config
 BuildRequires:	pulseaudio-devel
 BuildRequires:	wavpack-devel
-Requires:	audacious
+Requires:	audacious >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,10 +60,10 @@ install -d $RPM_BUILD_ROOT%{_datadir}/audacious/paranormal/Presets
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_datadir}/locale/id{_ID,}
-mv $RPM_BUILD_ROOT%{_datadir}/locale/ml{_IN,}
-mv $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
-mv $RPM_BUILD_ROOT%{_datadir}/locale/sr{_RS,}
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/id{_ID,}
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/ml{_IN,}
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/sr{_RS,}
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{cmn,fa_IR,sr/sr_RS}
 
 %find_lang %{name}
