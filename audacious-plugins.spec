@@ -1,11 +1,11 @@
 Summary:	Plugins for Audacious media player
 Name:		audacious-plugins
-Version:	3.5.2
+Version:	3.6
 Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://distfiles.audacious-media-player.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	1ba5ef956eb7b4018ff6a9f2ea404354
+# Source0-md5:	f3ea8edde73f1b07848f02d5bb957d72
 URL:		http://audacious-media-player.org/
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
@@ -33,7 +33,6 @@ BuildRequires:	libxml2-devel
 BuildRequires:	mpg123-libs-devel
 BuildRequires:	neon-devel
 BuildRequires:	pkg-config
-BuildRequires:	pulseaudio-devel
 BuildRequires:	wavpack-devel
 Requires:	audacious >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -88,6 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/audacious/Effect/ladspa.so
 %attr(755,root,root) %{_libdir}/audacious/Effect/mixer.so
 %attr(755,root,root) %{_libdir}/audacious/Effect/resample.so
+%attr(755,root,root) %{_libdir}/audacious/Effect/silence-removal.so
 %attr(755,root,root) %{_libdir}/audacious/Effect/speed-pitch.so
 %attr(755,root,root) %{_libdir}/audacious/Effect/stereo.so
 %attr(755,root,root) %{_libdir}/audacious/Effect/voice_removal.so
@@ -103,6 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/audacious/General/lyricwiki.so
 %attr(755,root,root) %{_libdir}/audacious/General/mpris2.so
 %attr(755,root,root) %{_libdir}/audacious/General/notify.so
+%attr(755,root,root) %{_libdir}/audacious/General/playlist-manager.so
 %attr(755,root,root) %{_libdir}/audacious/General/scrobbler.so
 %attr(755,root,root) %{_libdir}/audacious/General/search-tool.so
 %attr(755,root,root) %{_libdir}/audacious/General/skins.so
@@ -110,7 +111,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/audacious/General/statusicon.so
 
 %attr(755,root,root) %{_libdir}/audacious/Input/aac-raw.so
-%attr(755,root,root) %{_libdir}/audacious/Input/aac.so
 %attr(755,root,root) %{_libdir}/audacious/Input/amidi-plug.so
 %attr(755,root,root) %{_libdir}/audacious/Input/cdaudio-ng.so
 %attr(755,root,root) %{_libdir}/audacious/Input/console.so
@@ -130,8 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_libdir}/audacious/Output/alsa.so
 %attr(755,root,root) %{_libdir}/audacious/Output/filewriter.so
-%attr(755,root,root) %{_libdir}/audacious/Output/jackout.so
-%attr(755,root,root) %{_libdir}/audacious/Output/pulse_audio.so
+%attr(755,root,root) %{_libdir}/audacious/Output/jack-ng.so
 %attr(755,root,root) %{_libdir}/audacious/Output/sdlout.so
 
 %attr(755,root,root) %{_libdir}/audacious/Transport/gio.so
